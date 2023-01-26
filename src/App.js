@@ -10,19 +10,12 @@ import Header from './components/Header';
 import About from './pages/About';
 import { FeedbackProvider } from './context/FeedbackContext';
 
-function App(deleteHandler) {
+function App() {
   return (
     <FeedbackProvider>
       <div
-        className="relative
-      flex  
-      justify-center
-      min-h-screen
-      max-w-1600
-      overflow-hidden
-      bg-sky-300
-      font-semibold
-    "
+        className="relative flex justify-center min-h-screen max-w-1600
+        overflow-hidden bg-sky-300 font-semibold"
       >
         <div>
           <BrowserRouter>
@@ -41,15 +34,8 @@ function App(deleteHandler) {
               />
 
               <Route
-                className="relative
-                  flex
-                justify-center
-                min-h-screen
-                max-w-1600
-                overflow-hidden
-                bg-sky-300
-                font-semibold
-              "
+                className="relative flex justify-center min-h-screen
+                max-w-1600 overflow-hidden bg-sky-300 font-semibold"
                 path="/about"
                 element={
                   <div>
@@ -60,7 +46,8 @@ function App(deleteHandler) {
               />
             </Routes>
             {/* <Link to={'/'}>
-            <FaQuestion className="relative items-center text-purple-500 translate-x-44 translate-y-36" />
+            <FaQuestion className="relative items-center text-purple-500
+             translate-x-44 translate-y-36" />
           </Link> */}
           </BrowserRouter>
         </div>

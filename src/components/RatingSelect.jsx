@@ -1,7 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
+import FeedbackContext from '../context/FeedbackContext';
 
 const RatingSelect = ({ select }) => {
-  const [selected, setSelected] = useState(5);
+  const [selected, setSelected] = useState();
+  const { feedbackEdit } = useContext(FeedbackContext);
+
+  // have problem !
+  useEffect(() => {
+    setSelected(feedbackEdit.item.rating);
+  }, [feedbackEdit]);
+  // the code above , doesn't work
 
   const handleChange = (e) => {
     setSelected(+e.currentTarget.value);
@@ -22,7 +30,7 @@ const RatingSelect = ({ select }) => {
         />
         <label
           htmlFor="num1"
-          className="flex justify-center text-purple-600 bg-sky-200 border border-purple-200 rounded-full
+          className="flex justify-center text-purple-600 bg-lime-200 border border-purple-200 rounded-full
             hover:bg-sky-300 hover:text-sky-100 focus:outline-none peer-checked:ring-purple-300 
            peer-checked:ring-2 peer-checked:border-transparent peer-checked:text-lime-200 cursor-pointer
            peer-checked:bg-sky-300"
@@ -42,7 +50,7 @@ const RatingSelect = ({ select }) => {
         />
         <label
           htmlFor="num2"
-          className="flex justify-center text-purple-600 bg-sky-200 border border-purple-200 rounded-full
+          className="flex justify-center text-purple-600 bg-lime-200 border border-purple-200 rounded-full
             hover:bg-sky-300 focus:outline-none peer-checked:ring-purple-200  peer-checked:bg-sky-300
            peer-checked:ring-1 peer-checked:border-transparent cursor-pointer  hover:text-sky-100 peer-checked:text-lime-200"
         >
@@ -61,7 +69,7 @@ const RatingSelect = ({ select }) => {
         />
         <label
           htmlFor="num3"
-          className="flex justify-center text-purple-600 bg-sky-200 border border-purple-200 rounded-full
+          className="flex justify-center text-purple-600 bg-lime-200 border border-purple-200 rounded-full
             hover:bg-sky-300 focus:outline-none peer-checked:ring-purple-200  peer-checked:bg-sky-300
            peer-checked:ring-1 peer-checked:border-transparent cursor-pointer  hover:text-sky-100 peer-checked:text-lime-200"
         >
@@ -80,7 +88,7 @@ const RatingSelect = ({ select }) => {
         />
         <label
           htmlFor="num4"
-          className="flex justify-center text-purple-600 bg-sky-200 border border-purple-200 rounded-full
+          className="flex justify-center text-purple-600 bg-lime-200 border border-purple-200 rounded-full
             hover:bg-sky-300 focus:outline-none peer-checked:ring-purple-200  peer-checked:bg-sky-300
            peer-checked:ring-1 peer-checked:border-transparent cursor-pointer  hover:text-sky-100 peer-checked:text-lime-200"
         >
@@ -99,7 +107,7 @@ const RatingSelect = ({ select }) => {
         />
         <label
           htmlFor="num5"
-          className="flex justify-center text-purple-600 bg-sky-200 border border-purple-200 rounded-full
+          className="flex justify-center text-purple-600 bg-lime-200 border border-purple-200 rounded-full
             hover:bg-sky-300 focus:outline-none peer-checked:ring-purple-200  peer-checked:bg-sky-300
            peer-checked:ring-1 peer-checked:border-transparent cursor-pointer  hover:text-sky-100 peer-checked:text-lime-200"
         >
@@ -118,7 +126,7 @@ const RatingSelect = ({ select }) => {
         />
         <label
           htmlFor="num6"
-          className="flex justify-center text-purple-600 bg-sky-200 border border-purple-200 rounded-full
+          className="flex justify-center text-purple-600 bg-lime-200 border border-purple-200 rounded-full
             hover:bg-sky-300 focus:outline-none peer-checked:ring-purple-200  peer-checked:bg-sky-300
            peer-checked:ring-1 peer-checked:border-transparent cursor-pointer  hover:text-sky-100 peer-checked:text-lime-200"
         >
@@ -137,7 +145,7 @@ const RatingSelect = ({ select }) => {
         />
         <label
           htmlFor="num7"
-          className="flex justify-center text-purple-600 bg-sky-200 border border-purple-200 rounded-full
+          className="flex justify-center text-purple-600 bg-lime-200 border border-purple-200 rounded-full
             hover:bg-sky-300 focus:outline-none peer-checked:ring-purple-200  peer-checked:bg-sky-300
            peer-checked:ring-1 peer-checked:border-transparent cursor-pointer  hover:text-sky-100 peer-checked:text-lime-200"
         >
@@ -156,7 +164,7 @@ const RatingSelect = ({ select }) => {
         />
         <label
           htmlFor="num8"
-          className="flex justify-center text-purple-600 bg-sky-200 border border-purple-200 rounded-full
+          className="flex justify-center text-purple-600 bg-lime-200 border border-purple-200 rounded-full
             hover:bg-sky-300 focus:outline-none peer-checked:ring-purple-200  peer-checked:bg-sky-300
            peer-checked:ring-1 peer-checked:border-transparent cursor-pointer  hover:text-sky-100 peer-checked:text-lime-200"
         >
@@ -175,7 +183,7 @@ const RatingSelect = ({ select }) => {
         />
         <label
           htmlFor="num9"
-          className="flex justify-center text-purple-600 bg-sky-200 border border-purple-200 rounded-full
+          className="flex justify-center text-purple-600 bg-lime-200 border border-purple-200 rounded-full
             hover:bg-sky-300 focus:outline-none peer-checked:ring-purple-200  peer-checked:bg-sky-300
            peer-checked:ring-1 peer-checked:border-transparent cursor-pointer  hover:text-sky-100 peer-checked:text-lime-200"
         >
@@ -194,7 +202,7 @@ const RatingSelect = ({ select }) => {
         />
         <label
           htmlFor="num10"
-          className="flex justify-center text-purple-600 bg-sky-200 border border-purple-200 rounded-full
+          className="flex justify-center text-purple-600 bg-lime-200 border border-purple-200 rounded-full
             hover:bg-sky-300 focus:outline-none peer-checked:ring-purple-200  peer-checked:bg-sky-300
            peer-checked:ring-1 peer-checked:border-transparent cursor-pointer  hover:text-sky-100 peer-checked:text-lime-200"
         >

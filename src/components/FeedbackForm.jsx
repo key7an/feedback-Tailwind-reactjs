@@ -1,11 +1,26 @@
-import React, { useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
+import FeedbackContext from '../context/FeedbackContext';
 import RatingSelect from './RatingSelect';
 
-const FeedbackForm = ({ handleAdd, feedback }) => {
+const FeedbackForm = () => {
+  const { updateFeedback, addFeedback, feedbackEdit } =
+    useContext(FeedbackContext);
   const [text, setText] = useState('');
   const [rating, setRating] = useState('');
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState('');
+
+  // this code below have problem :
+
+  useEffect(() => {
+    if (feedbackEdit.edit === true) {
+      setText(feedbackEdit.item.text);
+      setRating(feedbackEdit.item.rating);
+      setBtnDisabled(false);
+    }
+  }, [feedbackEdit]);
+
+  // code above ^
 
   const handleTextChange = (e) => {
     setText(e.target.value);
@@ -31,7 +46,11 @@ const FeedbackForm = ({ handleAdd, feedback }) => {
         rating,
       };
 
-      handleAdd(newFeedback);
+      if (feedbackEdit.edit === true) {
+        updateFeedback(feedbackEdit.item.id, newFeedback);
+      } else {
+        addFeedback(newFeedback);
+      }
       setText('');
     }
   };
@@ -51,7 +70,8 @@ const FeedbackForm = ({ handleAdd, feedback }) => {
           onChange={handleTextChange}
           value={text}
           placeholder="Write a review"
-          className="-translate-x-8 shadow-sm w-56 shadow-black outline-none text-xs font-thin mb-0 p-1 rounded-lg mr-0 bg-lime-100"
+          className="-translate-x-8 shadow-sm w-56 shadow-black outline-none text-xs
+           font-thin mb-0 p-1 rounded-lg mr-0 bg-lime-100"
         />
         {btnDisabled}
         <button

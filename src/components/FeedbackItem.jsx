@@ -1,10 +1,9 @@
-import React from 'react';
-import { FaTimes } from 'react-icons/fa';
+import React, { useContext } from 'react';
+import { FaTimes, FaEdit } from 'react-icons/fa';
+import FeedbackContext from '../context/FeedbackContext';
 
-const FeedbackItem = ({ item, deleteHandler }) => {
-  const deleteHandle = () => {
-    deleteHandler(item.id);
-  };
+const FeedbackItem = ({ item }) => {
+  const { deleteFeedback, editFeedback } = useContext(FeedbackContext);
 
   return (
     <div>
@@ -14,8 +13,11 @@ const FeedbackItem = ({ item, deleteHandler }) => {
       >
         {item.rating}
       </div>
-      <button onClick={deleteHandle} className="absolute translate-x-80">
+      <button onClick={deleteFeedback} className="absolute translate-x-80">
         <FaTimes className="text-purple-500 text-xs translate-x-2 -translate-y-0" />
+      </button>
+      <button onClick={editFeedback} className="absolute translate-x-80">
+        <FaEdit className="text-purple-500 text-xs -translate-x-2 -translate-y-0" />
       </button>
       <div
         className="bg-lime-100 shadow-sm shadow-black text-sky-600 pr-14
@@ -28,3 +30,4 @@ const FeedbackItem = ({ item, deleteHandler }) => {
 };
 
 export default FeedbackItem;
+

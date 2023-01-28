@@ -1,17 +1,16 @@
 import React, { useContext, useState, useEffect } from 'react';
+
 import FeedbackContext from '../context/FeedbackContext';
 import RatingSelect from './RatingSelect';
 
 const FeedbackForm = () => {
-  const { updateFeedback, addFeedback, feedbackEdit } =
-    useContext(FeedbackContext);
   const [text, setText] = useState('');
   const [rating, setRating] = useState('');
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState('');
-
-  // this code below have problem :
-
+  const { updateFeedback, addFeedback, feedbackEdit } =
+    useContext(FeedbackContext);
+  
   useEffect(() => {
     if (feedbackEdit.edit === true) {
       setText(feedbackEdit.item.text);
@@ -20,7 +19,6 @@ const FeedbackForm = () => {
     }
   }, [feedbackEdit]);
 
-  // code above ^
 
   const handleTextChange = (e) => {
     setText(e.target.value);

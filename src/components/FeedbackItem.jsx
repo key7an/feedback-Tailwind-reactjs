@@ -13,10 +13,10 @@ const FeedbackItem = ({ item }) => {
       >
         {item.rating}
       </div>
-      <button onClick={deleteFeedback} className="absolute translate-x-80">
+      <button onClick={() => deleteFeedback(item.id)} className="absolute translate-x-80">
         <FaTimes className="text-purple-500 text-xs translate-x-2 -translate-y-0" />
       </button>
-      <button onClick={editFeedback} className="absolute translate-x-80">
+      <button onClick={() => editFeedback(item)} className="absolute translate-x-80">
         <FaEdit className="text-purple-500 text-xs -translate-x-2 -translate-y-0" />
       </button>
       <div

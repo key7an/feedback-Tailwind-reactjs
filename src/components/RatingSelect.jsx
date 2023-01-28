@@ -5,11 +5,9 @@ const RatingSelect = ({ select }) => {
   const [selected, setSelected] = useState();
   const { feedbackEdit } = useContext(FeedbackContext);
 
-  // have problem !
   useEffect(() => {
     setSelected(feedbackEdit.item.rating);
   }, [feedbackEdit]);
-  // the code above , doesn't work
 
   const handleChange = (e) => {
     setSelected(+e.currentTarget.value);
